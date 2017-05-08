@@ -1,0 +1,345 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Tester Jingel之mysql基础知识 </title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <link rel="shortcut icon" type="image/x-icon" href="http://www.easyicon.net/api/resizeApi.php?id=1207053&size=24" />
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="i/app-icon72x72@2x.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+  <link rel="apple-touch-icon-precomposed" href="i/app-icon72x72@2x.png">
+  <meta name="msapplication-TileImage" content="i/app-icon72x72@2x.png">
+  <meta name="msapplication-TileColor" content="#0e90d2">
+  <link rel="stylesheet" href="css/amazeui.min.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/navbar.css">
+</head>
+
+<body class="am-animation-fade"> 
+    <!-- 导航条  -->
+    <div class="am-topbar-fixed-top">
+        <ul class="venus-menu">
+            <a href="lw-index.html">
+            <li class="am-show-lg-only" style="padding-right: 50px">
+                <img style="padding-left: 50px;padding-top: 5px" src="http://www.easyicon.net/api/resizeApi.php?id=1139179&size=48" />
+            </li></a>
+            <li >
+                <a href="lw-index.html">首页</a>
+            </li>
+			 <li class="active">
+                <a href="#">数据库</a>
+                <ul>
+                    <li><a href="mysql.html">mysql</a></li>
+                    <li><a href="#">mongodb</a></li>
+                    <li><a href="#">sql-server</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Git</a>
+                <ul>
+                    <li><a href="article.html">Git1</a></li>
+                    <li><a href="#">Git2</a></li>
+                    <li><a href="#">Git3</a></li>
+                    <li><a href="#">Git4</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">python</a>
+                <ul>
+                    <li><a href="#">python1</a></li>
+                    <li><a href="#">python2</a></li>
+                    <li><a href="#">python3</a></li>
+                    <li><a href="#">python4</a></li>
+                </ul>
+            </li>
+            <li><a href="article.html">selenium</a></li>
+            <li><a href="article.html">appium</a></li>
+            <li><a href="lw-img.html">My Album</a></li>
+        </ul>
+    </div>
+	<!-- content start -->
+<div class="am-g am-g-fixed blog-fixed blog-content" style="padding-top: 50px">
+    <div class="am-u-md-8 am-u-sm-12">
+      <article class="am-article blog-article-p">
+        <div class="am-article-hd">
+          <h1 class="am-article-title blog-text-center">Mysql基本知识点</h1>
+          <p class="am-article-meta blog-text-center">
+              <span><a href="#" class="blog-color">article &nbsp;</a></span>-
+              <span><a href="#">@tester jingel &nbsp;</a></span>-
+              <span><a href="#">2017/05/08</a></span>
+          </p>
+        </div>        
+        <div class="am-article-bd">
+        <img src="https://imgsa.baidu.com/baike/c0%3Dbaike92%2C5%2C5%2C92%2C30/sign=88104ec20df431ada8df4b6b2a5fc7ca/ac6eddc451da81cb037c289d5366d016082431c3.jpg" alt="" class="blog-entry-img blog-article-margin">          
+        <p class="class="am-article-lead"">
+        <blockquote style="font-size:20px">
+			<p>
+			<span class="am-text-success">创建数据库：</span>mysqladmin -u root -p create 数据库名
+			</p> 
+			<p>
+			<span class="am-text-success">删除数据库：</span>mysqladmin -u root -p drop 数据库名
+			</p> 
+			<span class="am-text-danger">以下附加demo解释：（此处用user和ordertable两个表格）
+            </span>
+			<p>
+			<span class="am-text-success">创建user表格：</span >create table user(userid int not null auto_increment,username varchar(50) null,age int null,primary key(userid));
+			</p> 
+			<p><span class="am-text-success">插入数据：</span>insert into user(username,age)values("张三",20);（ps:此处只列出一个为例）</p>
+			<table class="am-table am-table-bordered am-table-radius am-table-striped">
+                <thead>
+                    <tr>
+                        <th>userid</th>
+                        <th>username</th>
+                        <th>age</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>zhangsan</td>
+                        <td>20</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>zhangsan2</td>
+                        <td>21</td>
+                    </tr>
+                    <tr class="am-active">
+                        <td>3</td>
+                        <td>zhangsan3</td>
+                        <td>22</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>
+                <span class="am-text-success">删除表格：</span>	
+                drop table 表名;
+            </p>
+            <p>
+                <span class="am-text-success">删除表格内的某行数据：</span> 
+                delete from 表名 where 条件语句;
+            </p>
+            <p>
+                <span class="am-text-success">清除表格内的数据：</span> 
+                delete from 表名 ;
+            </p>
+            <p>
+                <span class="am-text-success">更新表格内的数据：</span> 
+                update 表名 set username = "王二麻子",age = 18 where userid = 2;
+            </p>
+            <p>
+                <span class="am-text-success">普通查询：</span> 
+                select * from 表名；
+            </p>
+            <p>
+                <span class="am-text-success">like查询：</span> 
+                select * from 表名 where username like '%麻子';
+            </p>
+            <p>
+                <span class="am-text-secondary">联表查询：</span> 
+                select a.userid,a.username,b.orderid,b.ordernumber from user as a.order ,ordertable as b where a.username = b.username;
+            </p>
+            <table class="am-table am-table-bordered am-table-radius am-table-striped">
+                <thead>
+                    <tr>
+                        <th>userid</th>
+                        <th>username</th>
+                        <th>orderid</th>
+                        <th>ordernumber</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>zhangsan</td>
+                        <td>2017001006</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>王二麻子</td>
+                        <td>2017001007</td>
+                    </tr>
+                    <tr >
+                        <td>3</td>
+                        <td>3</td>
+                        <td>zhangsan3</td>
+                        <td>2017001008</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>
+                <span class="am-text-secondary">内连接：将两个表中存在连结关系的字段符合连接条件的记录形成记录集：</span> 
+                Select A.name,B.name from A inner join B on A.id=B.id和
+                <br>
+                Select A.name,B.name from A,B where A.id=B.id结果是一样的（内连接的inner关键字可省略）；
+            </p>
+            <p>
+                <span class="am-text-secondary">外连接：分为左外连接和右外连接：</span> 
+                <p>左连接A、B表结果包括A的全部记录和符合条件的B的记录。</p>
+                <p>右联结A、B表的结果和左联结B、A的结果是一样的，也就是说：</p>
+                <p>Select A.name,B.name from A Left Join B on A.id=B.id和</p>
+                <p>Select A.name,B.name from B Right Join A on B.id-A.id执行后的结果是一样的。</p>
+            </p>
+            <p>
+                <span class="am-text-secondary">三表联结查询：</span> 
+                <br>select username,psw,gname,tel from (t1 left join t2 on t1.t1_id=t2.t1_id) left join t3 on t1.t1_id=t3.t1_id
+            </p>
+            <p>
+                <span class="am-text-secondary">终极的三表联结查询:</span> 
+                <p><span class="am-text-danger">items：商品表，item_visit_stats：商品访问表，item_trade_stats：商品销售表</span></p>
+                <pre class="am-pre-scrollable">SELECT i.num_iid, i.title, i.price, SUM(iv.user_visits) AS uv,it.buyer_num,it.item_num,it.item_num*i.price AS turnover<br />FROM (items AS i RIGHT JOIN item_visit_stats AS iv ON i.num_iid=iv.num_iid)<br />LEFT JOIN (SELECT num_iid,SUM(buyer_num) AS buyer_num,SUM(item_num) AS item_num FROM item_trade_stats<br />WHERE seller_nick="XXXX" AND business_day BETWEEN '2010-08-14' AND '2010-08-15' GROUP BY num_iid)<br />AS it ON it.num_iid=iv.num_iid&nbsp;<br />WHERE i.nick="XXXX" AND iv.business_day BETWEEN '2010-08-14' AND '2010-08-15'<br />GROUP BY i.num_iid ORDER BY uv DESC</pre>
+            </p>
+            <p>
+                <span class="am-text-success">order by排序：</span> 
+                select * from 表名 order by 字段名 desc;(ps:desc-降序，asc-升序)
+            </p>
+		</blockquote>
+		<footer><cite>Tester Jingel</cite> – mysql的基本知识笔记, 2017-05-08</footer>
+      </article>
+	  
+        
+        <div class="am-g blog-article-widget blog-article-margin">
+          <div class="am-u-lg-4 am-u-md-5 am-u-sm-7 am-u-sm-centered blog-text-center">
+            <span class="am-icon-tags"> &nbsp;</span>
+            <a href="#">数据库</a> , <a href="mysql.html">mysql</a>
+            <hr>
+          </div>
+        </div>
+
+        <hr>
+        <div class="am-g blog-author blog-article-margin">
+          <div class="am-u-sm-3 am-u-md-3 am-u-lg-2">
+            <img src="i/f15.jpg" alt="" class="blog-author-img am-circle">
+          </div>
+          <div class="am-u-sm-9 am-u-md-9 am-u-lg-10">
+          <h3><span>作者 &nbsp;: &nbsp;</span><span class="blog-color">amazeui</span></h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+        </div>
+        <hr>
+        <form class="am-form am-g">
+            <h3 class="blog-comment">评论</h3>
+          <fieldset>
+            <div class="am-form-group am-u-sm-4 blog-clear-left">
+              <input type="text" class="" placeholder="名字">
+            </div>
+            <div class="am-form-group am-u-sm-4">
+              <input type="email" class="" placeholder="邮箱">
+            </div>
+
+            <div class="am-form-group am-u-sm-4 blog-clear-right">
+              <input type="password" class="" placeholder="网站">
+            </div>
+        
+            <div class="am-form-group">
+              <textarea class="" rows="5" placeholder="一字千金"></textarea>
+            </div>
+        
+            <p><button type="submit" class="am-btn am-btn-default">发表评论</button></p>
+          </fieldset>
+        </form>
+
+        <hr>
+    </div>
+
+    <div class="am-u-md-4 am-u-sm-12 blog-sidebar">
+            <div class="blog-sidebar-widget blog-bor">
+                <h2 class="blog-text-center blog-title"><span>About ME</span></h2>
+                <img src="i/f14.jpg" alt="about me" class="blog-entry-img" >
+                <p><b>Tester Jingel</b></p>
+                <p>
+            我是测试界的一只小蜗牛……
+            </p><p>我不想成为一个庸俗的人。十年百年后，当我们死去，质疑我们的人同样死去，后人看到的是裹足不前、原地打转的你，还是一直奔跑、走到远方的我？</p>
+            </div>
+            <div class="blog-sidebar-widget blog-bor">
+                <h2 class="blog-text-center blog-title"><span>Contact ME</span></h2>
+                <p>
+                    <a href=""><span class="am-icon-qq am-icon-fw am-primary blog-icon"></span></a>
+                    <a href=""><span class="am-icon-github am-icon-fw blog-icon"></span></a>
+                    <a href=""><span class="am-icon-weibo am-icon-fw blog-icon"></span></a>
+                    <a href=""><span class="am-icon-reddit am-icon-fw blog-icon"></span></a>
+                    <a href=""><span class="am-icon-weixin am-icon-fw blog-icon"></span></a>
+                </p>
+            </div>
+            <div class="blog-clear-margin blog-sidebar-widget blog-bor am-g ">
+                <h2 class="blog-title"><span>TAG cloud</span></h2>
+                <div class="am-u-sm-12 blog-clear-padding">
+                <a href="" class="blog-tag">软件测试</a>
+                <a href="" class="blog-tag">自动化测试</a>
+				<a href="" class="blog-tag">python</a>
+                <a href="" class="blog-tag">selenium</a>
+                <a href="" class="blog-tag">appium</a>
+                <a href="" class="blog-tag">jmeter</a>
+                </div>
+            </div>
+            <div class="blog-sidebar-widget blog-bor">
+                <h2 class="blog-title"><span>么么哒</span></h2>
+                <ul class="am-list">
+                    <li><a href="#">每个人都有一个死角， 自己走不出来，别人也闯不进去。</a></li>
+                    <li><a href="#">我把最深沉的秘密放在那里。</a></li>
+                    <li><a href="#">你不懂我，我不怪你。</a></li>
+                    <li><a href="#">每个人都有一道伤口， 或深或浅，盖上布，以为不存在。</a></li>
+                </ul>
+            </div>
+    </div>
+</div>
+<!-- content end -->
+
+
+    <!-- 底部内容 -->
+    <footer class="blog-footer">
+        <div class="am-g am-g-fixed blog-fixed am-u-sm-centered blog-footer-padding">
+            <div class="am-u-sm-12 am-u-md-4- am-u-lg-4">
+                <h3>个人简介</h3>
+                <p class="am-text-sm">一个测试界的小蜗牛。<br> 博客/ 简书/ 我的网站 <br> 填写职位要求<br>嗯嗯嗯，不知道说啥了。外面的世界真精彩<br><br>
+                填写主要职责会的技能xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx填写主要职责会的技能xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+            </div>
+			<div class="am-u-sm-12 am-u-md-4- am-u-lg-4 " >
+				<iframe src="./music/music.html" width=100% scrolling="no" frameborder="0" height="250px"></iframe>
+            </div>
+            <div class="am-u-sm-12 am-u-md-4- am-u-lg-4">
+                <h3>社交账号</h3>
+                <p>
+                    <a href="tencent://message/?uin=1210123704&Site=qq&Menu=yes"><span class="am-icon-qq am-icon-fw am-primary blog-icon blog-icon"></span></a>
+                    <a href="https://github.com/chengyuanyuan94"><span class="am-icon-github am-icon-fw blog-icon blog-icon"></span></a>
+                    <a href="http://weibo.com/5157680191/profile?rightmod=1&wvr=6&mod=personinfo"><span class="am-icon-weibo am-icon-fw blog-icon blog-icon"></span></a>
+                    <a href=""><span class="am-icon-weixin am-icon-fw blog-icon blog-icon"></span></a>
+                </p>
+                <h3>人生，心态好，一切安好</h3>
+                <p>人生处世，只要心态好，看淡尘世品行高，一切安好。阳光与黑暗同在，美好与丑陋并存，要学会生活在阳光和阴影下。</p>          
+            </div>
+            
+        </div>    
+        <hr data-am-widget="divider" style="" class="am-divider am-divider-dashed" /> 
+        <div class="blog-text-center">Copyright © 2017-2018 &nbsp;
+            <span class="am-icon-user"></span> Tester Jingel &nbsp;  
+            &nbsp;<span class="am-icon-phone"></span>  contact me：15855538480</div>    
+    </footer>
+  <!-- 回到顶部 -->
+    <div data-am-widget="gotop" class="am-gotop am-gotop-fixed" >
+        <a href="#top" title="">
+            <i class="am-gotop-icon am-icon-chevron-up"></i>
+        </a>
+    </div>
+    <!--[if (gte IE 9)|!(IE)]><!-->
+    <script src="js/jquery.min.js"></script>
+	<script src="js/navbarscript.js"></script>
+    <!--<![endif]-->
+    <!--[if lte IE 8 ]>
+    <script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+    <script src="/js/amazeui.ie8polyfill.min.js"></script>
+    <![endif]-->
+    <script src="js/amazeui.min.js"></script>
+</body>
+</html>
